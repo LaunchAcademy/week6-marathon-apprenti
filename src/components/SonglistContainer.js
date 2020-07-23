@@ -12,15 +12,17 @@ const SongListContainer = props => {
       }
     }
     let className = (selectedSong === song.id) ? "selected" : "";
-  return(
-    <SongTile 
-      key={song.id}
-      name={song.name}
-      artist={song.artist}
-      handleClick={handleClick}
-      className={className}
-    />
-  )
+    if (props.selectedPlaylist.songs.contains(song.id)) {
+      return(
+        <SongTile 
+          key={song.id}
+          name={song.name}
+          artist={song.artist}
+          handleClick={handleClick}
+          className={className}
+        />
+      )
+    }
 })
   return(
     <div className="columns small-6">

@@ -2,10 +2,9 @@ import React, { useState } from "react"
 import PlaylistTile from "./PlaylistTile"
 
 const PlaylistContainer = props => {
-  const [selectedPlaylist, setSelectedPlaylist] = useState(props.playlists[0].id)
   const allThePlaylistTiles = props.playlists.map((playlist) => {
     const handleClick = () => {
-      return setSelectedPlaylist(playlist.id);
+      return props.setSelectedPlaylist(playlist.id);
     }
     let className = "";
     if (selectedPlaylist === playlist.id) className += "selected"
